@@ -1,4 +1,5 @@
-// Authors: Nick Brubaker...
+// Authors: Nick Brubaker and...
+// Description: Simulates a zoo with animals
 // References: 
 // 		Printing the name of a class - https://stackoverflow.com/questions/6271417/java-get-the-current-class-name
 
@@ -8,8 +9,10 @@ public class Main
 	public static void main(String[] args)
 	{
 		
-		Canine a = new Canine("Allen");
-		a.roam();
+		Dog d = new Dog("Dan");
+		d.sleep();
+		d.roam();
+		d.makeNoise();
 		
 	}
 
@@ -84,3 +87,122 @@ class Canine extends Animal
 
 }
 
+class Hippo extends Pachyderm 
+{
+	
+	public Hippo(String newName)
+	{
+		super(newName);
+	}
+	
+		public void makeNoise() 
+	{
+		this.doSomething("making Hippo sounds");
+	}
+
+}
+
+class Elephant extends Pachyderm 
+{
+	
+	public Elephant(String newName)
+	{
+		super(newName);
+	}
+	
+		public void makeNoise() 
+	{
+		this.doSomething("making Elephant sounds");
+	}
+
+}
+
+class Rhino extends Pachyderm 
+{
+	
+	public Rhino(String newName)
+	{
+		super(newName);
+	}
+	
+		public void makeNoise() 
+	{
+		this.doSomething("making Rhino sounds");
+	}
+
+}
+
+class Tiger extends Feline 
+{
+	
+	public Tiger(String newName)
+	{
+		super(newName);
+	}
+	
+		public void makeNoise() 
+	{
+		this.doSomething("growling");
+	}
+
+}
+
+class Lion extends Feline 
+{
+	
+	public Lion(String newName)
+	{
+		super(newName);
+	}
+	
+		public void makeNoise() 
+	{
+		this.doSomething("roaring");
+	}
+
+}
+
+class Cat extends Feline 
+{
+	
+	public Cat(String newName)
+	{
+		super(newName);
+	}
+	
+		public void makeNoise() 
+	{
+		this.doSomething("meowing");
+	}
+
+}
+
+class Wolf extends Canine 
+{
+	
+	public Wolf(String newName)
+	{
+		super(newName);
+	}
+	
+		public void makeNoise() 
+	{
+		this.doSomething("making Wolf sounds");
+	}
+
+}
+
+class Dog extends Canine 
+{
+	
+	public Dog(String newName)
+	{
+		super(newName);
+	}
+	
+		public void makeNoise() 
+	{
+		this.doSomething("woofing");
+	}
+
+}
