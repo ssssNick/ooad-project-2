@@ -1,4 +1,6 @@
-// Authors: Nick Brubaker and...
+// Authors:	Nick Brubaker
+//			Dominic Doty
+//			Andrew Kuklinski
 // Description: Simulates a zoo with animals
 
 public class Main
@@ -12,6 +14,10 @@ public class Main
 		d.roam();
 		d.makeNoise();
 		
+		Cat c = new Cat("Chadwick");
+		c.sleep();
+		c.roam();
+		c.makeNoise();
 	}
 
 }

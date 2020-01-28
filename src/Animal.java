@@ -1,7 +1,12 @@
-// Authors: Nick Brubaker and...
+// Authors:	Nick Brubaker
+//			Dominic Doty
+//			Andrew Kuklinski
 // Description: Implementation of animal class and subclasses
 // References: 
-// 		Printing the name of a class - https://stackoverflow.com/questions/6271417/java-get-the-current-class-name
+//		Printing the name of a class - https://stackoverflow.com/questions/6271417/java-get-the-current-class-name
+//		Random number generation - https://stackoverflow.com/questions/363681/how-do-i-generate-random-integers-within-a-specific-range-in-java
+
+import java.util.concurrent.ThreadLocalRandom;
 
 class Animal 
 {
@@ -154,12 +159,60 @@ class Cat extends Feline
 	{
 		super(newName);
 	}
-	
-		public void makeNoise() 
+
+	private void iAmaCat()
 	{
-		this.doSomething("meowing");
+		int random = ThreadLocalRandom.current().nextInt(0, 6);
+
+		switch (random) {
+			case 0:
+				this.doSomething("to wake up");
+				break;
+			case 1:
+				this.doSomething("meowing");
+				break;
+			case 2:
+				this.doSomething("eating");
+				break;
+			case 3:
+				this.doSomething("prowling");
+				break;
+			case 4:
+				this.doSomething("laying on laptop keyboard while you try to type");
+				break;
+			case 5:
+				this.doSomething("sleeping");
+				break;
+			default:
+				this.doSomething("random number error");
+				break;
+		}
+	}
+	
+	public void wakeup()
+	{
+		this.iAmaCat();
 	}
 
+	public void makeNoise()
+	{
+		this.iAmaCat();
+	}
+
+	public void eat()
+	{
+		this.iAmaCat();
+	}
+
+	public void roam()
+	{
+		this.iAmaCat();
+	}
+
+	public void sleep()
+	{
+		this.iAmaCat();
+	}
 }
 
 class Wolf extends Canine 
