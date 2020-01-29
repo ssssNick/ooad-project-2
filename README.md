@@ -22,4 +22,10 @@ Example in OpenJDK 8:
 * **src/**: Contains all source files.
   * **Main.java**: Instantiates all zoo animals and zookeeper, starts zookeeper methods.
   * **Animal.java**: Detailed animal implementations. Animals print outputs to stdout.
+  * **zookeeper.java**: Class that runs a zoo full of animals.  Responsibilities of the zookeeper:
+    * Wake the Animals
+    * Roll Call the Animals
+    * Feed the Animals
+    * Exercise the Animals
+    * Shut down the zoo (Animals to Sleep)
 * **bin/**: Contains all compiled class files (assuming you're using the above compile command).
