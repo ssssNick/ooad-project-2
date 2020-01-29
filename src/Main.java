@@ -8,7 +8,7 @@ import java.util.AbstractMap;
 public class Main {
 
 	public static void main(String[] args) {
-		// Testing
+		
 		Animal[] animal_objects = new Animal[8];
 		animal_objects[0] = new Hippo("Harold");
 		animal_objects[1] = new Elephant("Ellie");
@@ -19,14 +19,11 @@ public class Main {
 		animal_objects[6] = new Wolf("Winona");
 		animal_objects[7] = new Dog("Darcy");
 
-		for (Animal animal : animal_objects) {
-			animal.wakeUp();
-			animal.makeNoise();
-			animal.eat();
-			animal.roam();
-			animal.sleep();
-		}
-		// End Test
-
+		zookeeper handler = new zookeeper("BillyRay");
+		handler.allWakeUp(animal_objects);
+		handler.allRollCall(animal_objects);
+		handler.allEating(animal_objects);
+		handler.allExercise(animal_objects);
+		handler.allSleep(animal_objects);
 	}
 }
