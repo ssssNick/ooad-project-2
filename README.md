@@ -1,11 +1,6 @@
 # Project 1 - Object Oriented Design and Analysis
 ### Authors: Andrew Kuklinski & Nick Brubaker & Dominic Doty
 
-
-## Assumptions
-Any assumptions made in development?
-
-
 ## Running the Code
 Example in OpenJDK 8:
 
@@ -15,7 +10,7 @@ Example in OpenJDK 8:
 
 *Run:*  `java -cp bin Main`
 
-*Run and capture output:*  `java -cp bin Main > outfile.txt`
+*Run and capture output:*  `java -cp bin Main > dayatthezoo.out`
 
 
 ## Code Organization
