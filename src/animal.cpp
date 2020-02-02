@@ -3,238 +3,229 @@
 //			Andrew Kuklinski
 // Description: Implementation of animal class and subclasses
 // References: 
-//		Printing the name of a class - https://stackoverflow.com/questions/6271417/java-get-the-current-class-name
+//		Printing the name of a class - https://stackoverflow.com/questions/3649278/how-can-i-get-the-class-name-from-a-c-object
 //		Random number generation - https://stackoverflow.com/questions/363681/how-do-i-generate-random-integers-within-a-specific-range-in-java
 
-import java.util.concurrent.ThreadLocalRandom;
+#include <stdlib.h>
+#include <iostream>
+#include <typeinfo>
 
-abstract class Animal {
+using namespace std;
 
-	private String type;
-	private String name;
+class Animal {
 
-	public Animal(String newName) {
-		this.type = this.getClass().getName();
-		this.name = newName;
-	}
+	private:
+		string type;
+		string name;
 
-	public void doSomething(String thing) {
-		System.out.println(this.name + " the " + this.type + " started " + thing);
-	}
-
-	public void sleep() {
-		this.doSomething("sleeping");
-	}
-
-	public void wakeUp() {
-		this.doSomething("waking up");
-	}
-
-	abstract public void makeNoise();
-
-	abstract public void eat();
-
-	abstract public void roam();
-}
-
-abstract class Pachyderm extends Animal {
-
-	public Pachyderm(String newName) {
-		super(newName);
-	}
-
-	public void makeNoise() {
-		this.doSomething("grunting");
-	}
-
-	public void eat() {
-		this.doSomething("eating grass");
-	}
-
-	public void roam() {
-		this.doSomething("roaming noisily");
-	}
-
-}
-
-abstract class Feline extends Animal {
-
-	public Feline(String newName) {
-		super(newName);
-	}
-
-	public void eat() {
-		this.doSomething("eating poor, poor animals");
-	}
-
-	public void roam() {
-		this.doSomething("stalking quietly");
-	}
-
-}
-
-abstract class Canine extends Animal {
-
-	public Canine(String newName) {
-		super(newName);
-	}
-
-	public void makeNoise() {
-		this.doSomething("howling");
-	}
-
-	public void eat() {
-		this.doSomething("eating a squirrel");
-	}
-
-	public void roam() {
-		this.doSomething("roaming happily");
-	}
-
-}
-
-class Hippo extends Pachyderm {
-
-	public Hippo(String newName) {
-		super(newName);
-	}
-
-	public void makeNoise() {
-		this.doSomething("making Hippo sounds");
-	}
-
-}
-
-class Elephant extends Pachyderm {
-
-	public Elephant(String newName) {
-		super(newName);
-	}
-
-	public void makeNoise() {
-		this.doSomething("making Elephant sounds");
-	}
-
-	public void eat() {
-		this.doSomething("eating a tree top");
-	}
-
-}
-
-class Rhino extends Pachyderm {
-
-	public Rhino(String newName) {
-		super(newName);
-	}
-
-	public void makeNoise() {
-		this.doSomething("making Rhino sounds");
-	}
-
-	public void roam() {
-		this.doSomething("digging a midden");
-	}
-
-}
-
-class Tiger extends Feline {
-
-	public Tiger(String newName) {
-		super(newName);
-	}
-
-	public void makeNoise() {
-		this.doSomething("growling");
-	}
-
-}
-
-class Lion extends Feline {
-
-	public Lion(String newName) {
-		super(newName);
-	}
-
-	public void makeNoise() {
-		this.doSomething("roaring");
-	}
-
-}
-
-class Cat extends Feline {
-
-	public Cat(String newName) {
-		super(newName);
-	}
-
-	private void iAmaCat() {
-		int random = ThreadLocalRandom.current().nextInt(0, 6);
-
-		switch (random) {
-		case 0:
-			this.doSomething("waking up");
-			break;
-		case 1:
-			this.doSomething("meowing");
-			break;
-		case 2:
-			this.doSomething("eating");
-			break;
-		case 3:
-			this.doSomething("prowling");
-			break;
-		case 4:
-			this.doSomething("laying on laptop keyboard while you try to type");
-			break;
-		case 5:
-			this.doSomething("sleeping");
-			break;
-		default:
-			this.doSomething("random number error");
-			break;
+	public: 
+		Animal(string newName) {
+			type = typeid(Animal).name();
+			name = newName;
 		}
-	}
 
-	public void wakeUp() {
-		this.iAmaCat();
-	}
+		virtual void doSomething(string thing) {
+			cout << name << " the " << type << " started " << thing;
+		}
 
-	public void makeNoise() {
-		this.iAmaCat();
-	}
+		virtual void sleep() {
+			doSomething("sleeping");
+		}
 
-	public void eat() {
-		this.iAmaCat();
-	}
+		virtual void wakeUp() {
+			doSomething("waking up");
+		}
 
-	public void roam() {
-		this.iAmaCat();
-	}
+		virtual void makeNoise();
 
-	public void sleep() {
-		this.iAmaCat();
-	}
-}
+		virtual void eat();
 
-class Wolf extends Canine {
+		virtual void roam();
+};
 
-	public Wolf(String newName) {
-		super(newName);
-	}
+class Pachyderm: public Animal {
 
-	public void makeNoise() {
-		this.doSomething("making Wolf sounds");
-	}
+	public:
 
-}
+		void makeNoise() {
+			doSomething("grunting");
+		}
 
-class Dog extends Canine {
+		void eat() {
+			doSomething("eating grass");
+		}
 
-	public Dog(String newName) {
-		super(newName);
-	}
+		void roam() {
+			doSomething("roaming noisily");
+		}
 
-	public void makeNoise() {
-		this.doSomething("woofing");
-	}
-}
+};
+
+class Feline: public Animal {
+
+	public:
+	
+		void eat() {
+			doSomething("eating poor, poor animals");
+		}
+
+		void roam() {
+			doSomething("stalking quietly");
+		}
+
+};
+
+class Canine: public Animal {
+
+	public:
+	
+		void makeNoise() {
+			doSomething("howling");
+		}
+
+		void eat() {
+			doSomething("eating a squirrel");
+		}
+
+		void roam() {
+			doSomething("roaming happily");
+		}
+
+};
+
+class Hippo: public Pachyderm {
+
+	public:
+	
+		void makeNoise() {
+			doSomething("making Hippo sounds");
+		}
+
+};
+
+class Elephant: public Pachyderm {
+
+	public:
+	
+		
+		void makeNoise() {
+			doSomething("making Elephant sounds");
+		}
+
+		void eat() {
+			doSomething("eating a tree top");
+		}
+
+};
+
+class Rhino: public Pachyderm {
+
+	public:
+	
+		void makeNoise() {
+			doSomething("making Rhino sounds");
+		}
+
+		void roam() {
+			doSomething("digging a midden");
+		}
+
+};
+
+class Tiger: public Feline {
+
+	public:
+	
+		void makeNoise() {
+			doSomething("growling");
+		}
+
+};
+
+class Lion: public Feline {
+
+	public:
+	
+		void makeNoise() {
+			doSomething("roaring");
+		}
+
+};
+
+class Cat: public Feline {
+
+	private: 
+	
+		void iAmaCat() {
+
+			int random = rand() % 6;
+
+			switch (random) {
+
+			case 0:
+				doSomething("waking up");
+				break;
+			case 1:
+				doSomething("meowing");
+				break;
+			case 2:
+				doSomething("eating");
+				break;
+			case 3:
+				doSomething("prowling");
+				break;
+			case 4:
+				doSomething("laying on laptop keyboard while you try to type");
+				break;
+			case 5:
+				doSomething("sleeping");
+				break;
+			default:
+				doSomething("random number error");
+				break;
+			}
+		}
+
+	public:
+
+		void wakeUp() {
+			iAmaCat();
+		}
+
+		void makeNoise() {
+			iAmaCat();
+		}
+
+		void eat() {
+			iAmaCat();
+		}
+
+		void roam() {
+			iAmaCat();
+		}
+
+		void sleep() {
+			iAmaCat();
+		}
+
+};
+
+class Wolf: public Canine {
+
+	public:
+	
+		void makeNoise() {
+			doSomething("making Wolf sounds");
+		}
+
+};
+
+class Dog: public Canine {
+
+	public:
+	
+		void makeNoise() {
+			doSomething("woofing");
+		}
+
+};
