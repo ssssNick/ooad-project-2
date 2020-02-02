@@ -1,4 +1,4 @@
-# Project 1 - Object Oriented Design and Analysis
+# Project 2 - Object Oriented Design and Analysis
 ### Authors: Andrew Kuklinski & Nick Brubaker & Dominic Doty
 
 ## Running the Code
