@@ -6,54 +6,59 @@
  * 			Output to file: https://www.geeksforgeeks.org/redirecting-system-out-println-output-to-a-file-in-java/
  * 
 */
-public class zookeeper{
+
+//TODO split into .cpp and .h files
+
+#include "animal.cpp"
+#include <iostream>
+#include <vector>
+
+//TODO pass this in instead of hardcoding it
+#define NUM_ANIMALS 16
+
+using namespace std;
+
+class Zookeeper {
 	
-	private String zname;
+	private:
+		string zname;
 	
-	public zookeeper(String newName) {
-		this.zname = newName;
-		System.out.println("Hello zoo! My name is " + this.zname);
-		System.out.println("I will be taking care of you today!!!\n");
-	}
+	public: 
 	
-	public void allWakeUp(Animal[] zoo) {
-		System.out.println("**" + this.zname + " says: Time to wake up!");
-		for(Animal animal : zoo) {
-			animal.wakeUp();
+		Zookeeper(string newName) {
+			zname = newName;
+			cout << "Hello zoo! My name is " << zname;
+			cout << "\nI will be taking care of you today!!!\n";
 		}
-		System.out.println("-----------------------------------\n");
-	}
-	
-	public void allRollCall(Animal[] zoo) {
-		System.out.println("**" + this.zname + " says: Everyone here?");
-		for(Animal animal : zoo) {
-			animal.makeNoise();
+		
+		void allWakeUp(Animal ** zoo) {
+			cout << "**" << zname << " says: Time to wake up!";
+			for(int i = 0; i < NUM_ANIMALS; i++) zoo[i]->wakeUp();
+			cout << "\n-----------------------------------\n";
 		}
-		System.out.println("-----------------------------------\n");
-	}
-	
-	public void allEating(Animal[] zoo) {
-		System.out.println("**" + this.zname + " says: FOOD!");
-		for(Animal animal : zoo) {
-			animal.eat();
+		
+		void allRollCall(Animal ** zoo) {
+			cout << "**" << zname << " says: Everyone here?";
+			for(int i = 0; i < NUM_ANIMALS; i++) zoo[i]->makeNoise();
+			cout << "\n-----------------------------------\n";
 		}
-		System.out.println("-----------------------------------\n");
-	}
-	
-	public void allExercise(Animal[] zoo) {
-		System.out.println("**" + this.zname + " says: Time to get your exercise.");
-		for(Animal animal : zoo) {
-			animal.roam();
+		
+		void allEating(Animal ** zoo) {
+			cout << "**" << zname << " says: FOOD!";
+			for(int i = 0; i < NUM_ANIMALS; i++) zoo[i]->eat();
+			cout << "\n-----------------------------------\n";
 		}
-		System.out.println("-----------------------------------\n");
-	}
-	
-	public void allSleep(Animal[] zoo) {
-		System.out.println("**" + this.zname + " says: The zoo is closed, time for sleeping.");
-		for(Animal animal : zoo) {
-			animal.sleep();
+		
+		void allExercise(Animal ** zoo) {
+			cout << "**" << zname << " says: Time to get your exercise.";
+			for(int i = 0; i < NUM_ANIMALS; i++) zoo[i]->roam();
+			cout << "\n-----------------------------------\n";
 		}
-		System.out.println("-----------------------------------\n");
-	}
+		
+		void allSleep(Animal ** zoo) {
+			cout << "**" << zname << " says: The zoo is closed, time for sleeping.";
+			for(int i = 0; i < NUM_ANIMALS; i++) zoo[i]->sleep();
+			cout << "\n-----------------------------------\n";
+		}
 	
-}
+};

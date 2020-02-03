@@ -6,6 +6,11 @@
 //		Printing the name of a class - https://stackoverflow.com/questions/3649278/how-can-i-get-the-class-name-from-a-c-object
 //		Random number generation - https://stackoverflow.com/questions/363681/how-do-i-generate-random-integers-within-a-specific-range-in-java
 
+//TODO split into .cpp and .h files
+
+#ifndef ANIMAL
+#define ANIMAL
+
 #include <stdlib.h>
 #include <iostream>
 #include <typeinfo>
@@ -15,17 +20,19 @@ using namespace std;
 class Animal {
 
 	private:
-		string type;
 		string name;
+
+	protected:
+		string type;
 
 	public: 
 		Animal(string newName) {
-			type = typeid(Animal).name();
+			type =  "Animal";
 			name = newName;
 		}
 
-		virtual void doSomething(string thing) {
-			cout << name << " the " << type << " started " << thing;
+		void doSomething(string thing) {
+			cout << "\n" << name << " the " << type << " started " << thing;
 		}
 
 		virtual void sleep() {
@@ -36,16 +43,26 @@ class Animal {
 			doSomething("waking up");
 		}
 
-		virtual void makeNoise();
+		virtual void makeNoise() {
 
-		virtual void eat();
+		}
 
-		virtual void roam();
+		virtual void eat() {
+
+		}
+
+		virtual void roam() {
+			
+		}
 };
 
 class Pachyderm: public Animal {
 
 	public:
+
+		Pachyderm(string newName) : Animal(newName) {
+
+		}
 
 		void makeNoise() {
 			doSomething("grunting");
@@ -64,6 +81,10 @@ class Pachyderm: public Animal {
 class Feline: public Animal {
 
 	public:
+
+		Feline(string newName) : Animal(newName) {
+
+		}
 	
 		void eat() {
 			doSomething("eating poor, poor animals");
@@ -78,6 +99,10 @@ class Feline: public Animal {
 class Canine: public Animal {
 
 	public:
+
+		Canine(string newName) : Animal(newName) {
+
+		}
 	
 		void makeNoise() {
 			doSomething("howling");
@@ -96,6 +121,10 @@ class Canine: public Animal {
 class Hippo: public Pachyderm {
 
 	public:
+
+		Hippo(string newName) : Pachyderm(newName) {
+			type =  "Hippo";
+		}
 	
 		void makeNoise() {
 			doSomething("making Hippo sounds");
@@ -106,7 +135,10 @@ class Hippo: public Pachyderm {
 class Elephant: public Pachyderm {
 
 	public:
-	
+
+		Elephant(string newName) : Pachyderm(newName) {
+			type =  "Elephant";			
+		}	
 		
 		void makeNoise() {
 			doSomething("making Elephant sounds");
@@ -121,6 +153,10 @@ class Elephant: public Pachyderm {
 class Rhino: public Pachyderm {
 
 	public:
+
+		Rhino(string newName) : Pachyderm(newName) {
+			type =  "Rhino";			
+		}	
 	
 		void makeNoise() {
 			doSomething("making Rhino sounds");
@@ -135,6 +171,10 @@ class Rhino: public Pachyderm {
 class Tiger: public Feline {
 
 	public:
+
+		Tiger(string newName) : Feline(newName) {
+			type =  "Tiger";			
+		}	
 	
 		void makeNoise() {
 			doSomething("growling");
@@ -145,6 +185,10 @@ class Tiger: public Feline {
 class Lion: public Feline {
 
 	public:
+
+		Lion(string newName) : Feline(newName) {
+			type =  "Lion";			
+		}	
 	
 		void makeNoise() {
 			doSomething("roaring");
@@ -188,6 +232,10 @@ class Cat: public Feline {
 
 	public:
 
+		Cat(string newName) : Feline(newName) {
+			type =  "Cat";			
+		}	
+
 		void wakeUp() {
 			iAmaCat();
 		}
@@ -213,6 +261,10 @@ class Cat: public Feline {
 class Wolf: public Canine {
 
 	public:
+
+		Wolf(string newName) : Canine(newName) {
+			type =  "Wolf";			
+		}	
 	
 		void makeNoise() {
 			doSomething("making Wolf sounds");
@@ -223,9 +275,15 @@ class Wolf: public Canine {
 class Dog: public Canine {
 
 	public:
+
+		Dog(string newName) : Canine(newName) {
+			type =  "Dog";			
+		}	
 	
 		void makeNoise() {
 			doSomething("woofing");
 		}
 
 };
+
+#endif
