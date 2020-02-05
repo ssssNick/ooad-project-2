@@ -10,29 +10,35 @@ CPPFLAGS=-g -Wall
 # LDLIBS=
 
 OUTNAME=proj_2
-SRCS=src/animal.cpp src/main.cpp src/zookeeper.cpp
-OBJS=$(subst src,build,$(subst .cpp,.o,$(SRCS)))
+SRCDIR=src
+BUILDDIR=build
+RAW_SRCS=animal.cpp main.cpp zookeeper.cpp
+
+SRCS=$(RAW_SRCS:%=$(SRCDIR)/%)
+OBJS=$(subst $(SRCDIR),$(BUILDDIR),$(subst .cpp,.o,$(SRCS)))
 
 all: $(OUTNAME)
 
-builddir:
-	mkdir -p build
+.PHONY: all clean
 
 $(OUTNAME): $(OBJS)
 	$(CXX) $(LDFLAGS) -o $(OUTNAME) $(OBJS) $(LDLIBS)
 
-build/%.o: src/%.cpp builddir
+$(BUILDDIR)/%.o: $(SRCDIR)/%.cpp | $(BUILDDIR)
 	$(CC) $(CPPFLAGS) -c $< -o $@
+
+$(BUILDDIR):
+	mkdir -p $(BUILDDIR)
 
 depend: .depend
 
 .depend: $(SRCS)
 	$(RM) ./.depend
-	$(CXX) $(CPPFLAGS) -MM $^>>./.depend;
+	$(CXX) $(CPPFLAGS) -MM $^>>./.depend
+	sed -i -e 's/^/src\//' ./.depend
 
 clean:
-	$(RM) $(OBJS) $(OUTNAME)
-	rmdir build
+	$(RM) -rf $(BUILDDIR) $(OUTNAME)
 
 distclean: clean
 	$(RM) *~ .depend

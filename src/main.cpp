@@ -4,18 +4,18 @@
 // Description: Simulates a zoo with animals
 
 
-#include "animal.cpp"
+#include "animal.h"
 #include "zookeeper.cpp"
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
+#define NUM_ANIMALS 16
+
 int main() {
 	
-	Animal *animal_objects[16];
-
-	Animal *a;
+	Animal *animal_objects[NUM_ANIMALS];
 
 	animal_objects[0] = new Hippo("Harold");
 	animal_objects[1] = new Elephant("Ellie");
@@ -36,9 +36,9 @@ int main() {
 
 	Zookeeper *handler = new Zookeeper("BillyRay");
 
-	handler->allWakeUp(animal_objects);
-	handler->allRollCall(animal_objects);
-	handler->allEating(animal_objects);
-	handler->allExercise(animal_objects);
-	handler->allSleep(animal_objects);
+	handler->allWakeUp(animal_objects, NUM_ANIMALS);
+	handler->allRollCall(animal_objects, NUM_ANIMALS);
+	handler->allEating(animal_objects, NUM_ANIMALS);
+	handler->allExercise(animal_objects, NUM_ANIMALS);
+	handler->allSleep(animal_objects, NUM_ANIMALS);
 }

@@ -8,282 +8,198 @@
 
 //TODO split into .cpp and .h files
 
-#ifndef ANIMAL
-#define ANIMAL
-
-#include <stdlib.h>
-#include <iostream>
-#include <typeinfo>
+#include "animal.h"
 
 using namespace std;
 
-class Animal {
+//======ANIMAL======//
 
-	private:
-		string name;
+Animal::Animal(string newName) {
+	type =  "Animal";
+	name = newName;
+}
 
-	protected:
-		string type;
+void Animal::doSomething(string thing) {
+	cout << "\n" << name << " the " << type << " started " << thing;
+}
 
-	public: 
-		Animal(string newName) {
-			type =  "Animal";
-			name = newName;
-		}
+void Animal::sleep() {
+	doSomething("sleeping");
+}
 
-		void doSomething(string thing) {
-			cout << "\n" << name << " the " << type << " started " << thing;
-		}
+void Animal::wakeUp() {
+	doSomething("waking up");
+}
 
-		virtual void sleep() {
-			doSomething("sleeping");
-		}
+//======PACHYDERM======//
 
-		virtual void wakeUp() {
-			doSomething("waking up");
-		}
+void Pachyderm::makeNoise() {
+	doSomething("grunting");
+}
 
-		virtual void makeNoise() {
+void Pachyderm::eat() {
+	doSomething("eating grass");
+}
 
-		}
+void Pachyderm::roam() {
+	doSomething("roaming noisily");
+}
 
-		virtual void eat() {
+//======FELINE======//
 
-		}
+void Feline::eat() {
+	doSomething("eating poor, poor animals");
+}
 
-		virtual void roam() {
-			
-		}
-};
+void Feline::roam() {
+	doSomething("stalking quietly");
+}
 
-class Pachyderm: public Animal {
 
-	public:
+//======CANINE======//
 
-		Pachyderm(string newName) : Animal(newName) {
+void Canine::makeNoise() {
+	doSomething("howling");
+}
 
-		}
+void Canine::eat() {
+	doSomething("eating a squirrel");
+}
 
-		void makeNoise() {
-			doSomething("grunting");
-		}
+void Canine::roam() {
+	doSomething("roaming happily");
+}
 
-		void eat() {
-			doSomething("eating grass");
-		}
+//======HIPPO======//
 
-		void roam() {
-			doSomething("roaming noisily");
-		}
+Hippo::Hippo(string newName) : Pachyderm(newName) {
+	type =  "Hippo";
+}
 
-};
+void Hippo::makeNoise() {
+	doSomething("making Hippo sounds");
+}
 
-class Feline: public Animal {
+//======ELEPHANT======//
 
-	public:
+Elephant::Elephant(string newName) : Pachyderm(newName) {
+	type =  "Elephant";			
+}	
 
-		Feline(string newName) : Animal(newName) {
+void Elephant::makeNoise() {
+	doSomething("making Elephant sounds");
+}
 
-		}
-	
-		void eat() {
-			doSomething("eating poor, poor animals");
-		}
+void Elephant::eat() {
+	doSomething("eating a tree top");
+}
 
-		void roam() {
-			doSomething("stalking quietly");
-		}
+//======RHINO======//
 
-};
+Rhino::Rhino(string newName) : Pachyderm(newName) {
+	type =  "Rhino";			
+}	
 
-class Canine: public Animal {
+void Rhino::makeNoise() {
+	doSomething("making Rhino sounds");
+}
 
-	public:
+void Rhino::roam() {
+	doSomething("digging a midden");
+}
 
-		Canine(string newName) : Animal(newName) {
+//======TIGER======//
 
-		}
-	
-		void makeNoise() {
-			doSomething("howling");
-		}
-
-		void eat() {
-			doSomething("eating a squirrel");
-		}
-
-		void roam() {
-			doSomething("roaming happily");
-		}
-
-};
-
-class Hippo: public Pachyderm {
-
-	public:
-
-		Hippo(string newName) : Pachyderm(newName) {
-			type =  "Hippo";
-		}
-	
-		void makeNoise() {
-			doSomething("making Hippo sounds");
-		}
-
-};
-
-class Elephant: public Pachyderm {
-
-	public:
-
-		Elephant(string newName) : Pachyderm(newName) {
-			type =  "Elephant";			
-		}	
-		
-		void makeNoise() {
-			doSomething("making Elephant sounds");
-		}
-
-		void eat() {
-			doSomething("eating a tree top");
-		}
-
-};
-
-class Rhino: public Pachyderm {
-
-	public:
-
-		Rhino(string newName) : Pachyderm(newName) {
-			type =  "Rhino";			
-		}	
-	
-		void makeNoise() {
-			doSomething("making Rhino sounds");
-		}
-
-		void roam() {
-			doSomething("digging a midden");
-		}
-
-};
-
-class Tiger: public Feline {
-
-	public:
-
-		Tiger(string newName) : Feline(newName) {
-			type =  "Tiger";			
-		}	
-	
-		void makeNoise() {
-			doSomething("growling");
-		}
-
-};
-
-class Lion: public Feline {
-
-	public:
-
-		Lion(string newName) : Feline(newName) {
-			type =  "Lion";			
-		}	
-	
-		void makeNoise() {
-			doSomething("roaring");
-		}
-
-};
-
-class Cat: public Feline {
-
-	private: 
-	
-		void iAmaCat() {
-
-			int random = rand() % 6;
-
-			switch (random) {
-
-			case 0:
-				doSomething("waking up");
-				break;
-			case 1:
-				doSomething("meowing");
-				break;
-			case 2:
-				doSomething("eating");
-				break;
-			case 3:
-				doSomething("prowling");
-				break;
-			case 4:
-				doSomething("laying on laptop keyboard while you try to type");
-				break;
-			case 5:
-				doSomething("sleeping");
-				break;
-			default:
-				doSomething("random number error");
-				break;
-			}
-		}
-
-	public:
-
-		Cat(string newName) : Feline(newName) {
-			type =  "Cat";			
-		}	
-
-		void wakeUp() {
-			iAmaCat();
-		}
-
-		void makeNoise() {
-			iAmaCat();
-		}
-
-		void eat() {
-			iAmaCat();
-		}
-
-		void roam() {
-			iAmaCat();
-		}
-
-		void sleep() {
-			iAmaCat();
-		}
-
-};
-
-class Wolf: public Canine {
-
-	public:
-
-		Wolf(string newName) : Canine(newName) {
-			type =  "Wolf";			
-		}	
-	
-		void makeNoise() {
-			doSomething("making Wolf sounds");
-		}
-
-};
-
-class Dog: public Canine {
-
-	public:
-
-		Dog(string newName) : Canine(newName) {
-			type =  "Dog";			
-		}	
-	
-		void makeNoise() {
-			doSomething("woofing");
-		}
-
-};
-
-#endif
+Tiger::Tiger(string newName) : Feline(newName) {
+	type =  "Tiger";			
+}	
+
+void Tiger::makeNoise() {
+	doSomething("growling");
+}
+
+//======LION======//
+
+Lion::Lion(string newName) : Feline(newName) {
+	type =  "Lion";			
+}	
+
+void Lion::makeNoise() {
+	doSomething("roaring");
+}
+
+//======CAT======//
+
+void Cat::iAmaCat() {
+
+	int random = rand() % 6;
+
+	switch (random) {
+
+	case 0:
+		doSomething("waking up");
+		break;
+	case 1:
+		doSomething("meowing");
+		break;
+	case 2:
+		doSomething("eating");
+		break;
+	case 3:
+		doSomething("prowling");
+		break;
+	case 4:
+		doSomething("laying on laptop keyboard while you try to type");
+		break;
+	case 5:
+		doSomething("sleeping");
+		break;
+	default:
+		doSomething("random number error");
+		break;
+	}
+}
+
+Cat::Cat(string newName) : Feline(newName) {
+	type =  "Cat";			
+}
+
+void Cat::wakeUp() {
+	iAmaCat();
+}
+
+void Cat::makeNoise() {
+	iAmaCat();
+}
+
+void Cat::eat() {
+	iAmaCat();
+}
+
+void Cat::roam() {
+	iAmaCat();
+}
+
+void Cat::sleep() {
+	iAmaCat();
+}
+
+//======WOLF======//
+
+Wolf::Wolf(string newName) : Canine(newName) {
+	type =  "Wolf";			
+}	
+
+void Wolf::makeNoise() {
+	doSomething("making Wolf sounds");
+}
+
+//======DOG======//
+
+Dog::Dog(string newName) : Canine(newName) {
+	type =  "Dog";			
+}	
+
+void Dog::makeNoise() {
+	doSomething("woofing");
+}
