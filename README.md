@@ -2,25 +2,23 @@
 ### Authors: Andrew Kuklinski & Nick Brubaker & Dominic Doty
 
 ## Running the Code
-Example in OpenJDK 8:
+Example assuming GCC/G++ and make installed.
 
-*Prep:*  `mkdir -p bin build/src build/inc`
+*Build:* `make`
 
-*Build:*  `javac -d bin -s build/src -h build/inc -verbose -deprecation src/*.java`
+*Run:* `./proj_2`
 
-*Run:*  `java -cp bin Main`
-
-*Run and capture output:*  `java -cp bin Main > dayatthezoo.out`
-
+*Clean:* `make clean`
 
 ## Code Organization
 * **src/**: Contains all source files.
-  * **Main.java**: Instantiates all zoo animals and zookeeper, starts zookeeper methods.
-  * **Animal.java**: Detailed animal implementations. Animals print outputs to stdout.
-  * **zookeeper.java**: Class that runs a zoo full of animals.  Responsibilities of the zookeeper:
+  * **main.cpp**: Instantiates all zoo animals and zookeeper, starts zookeeper methods.
+  * **animal.cpp**: Detailed animal implementations. Animals print outputs to stdout.
+  * **zookeeper.cpp**: Class that runs a zoo full of animals.  Responsibilities of the zookeeper:
     * Wake the Animals
     * Roll Call the Animals
     * Feed the Animals
     * Exercise the Animals
     * Shut down the zoo (Animals to Sleep)
-* **bin/**: Contains all compiled class files (assuming you're using the above compile command).
+* **build/**: Build objects directory
+* **proj_2**: Output binary

@@ -2,3 +2,6 @@
 *.ini
 *.metadata
 *.vscode
+.depend
+proj_2
+build/
