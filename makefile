@@ -19,7 +19,7 @@ OBJS=$(subst $(SRCDIR),$(BUILDDIR),$(subst .cpp,.o,$(SRCS)))
 
 all: $(OUTNAME)
 
-.PHONY: all clean
+.PHONY: all clean .depend
 
 $(OUTNAME): $(OBJS)
 	$(CXX) $(LDFLAGS) -o $(OUTNAME) $(OBJS) $(LDLIBS)
@@ -30,12 +30,11 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.cpp | $(BUILDDIR)
 $(BUILDDIR):
 	mkdir -p $(BUILDDIR)
 
-depend: .depend
-
 .depend: $(SRCS)
-	$(RM) ./.depend
-	$(CXX) $(CPPFLAGS) -MM $^>>./.depend
-	sed -i -e 's/^/src\//' ./.depend
+	@echo "Refreshing Dependencies"
+	@$(RM) ./.depend
+	@$(CXX) $(CPPFLAGS) -MM $^>>./.depend
+	@sed -i -e 's/^/src\//' ./.depend
 
 clean:
 	$(RM) -rf $(BUILDDIR) $(OUTNAME)

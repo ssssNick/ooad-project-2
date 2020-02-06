@@ -6,8 +6,6 @@
 //		Printing the name of a class - https://stackoverflow.com/questions/3649278/how-can-i-get-the-class-name-from-a-c-object
 //		Random number generation - https://stackoverflow.com/questions/363681/how-do-i-generate-random-integers-within-a-specific-range-in-java
 
-//TODO split into .cpp and .h files
-
 #include "animal.h"
 
 using namespace std;
