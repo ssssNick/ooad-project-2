@@ -8,16 +8,14 @@
 
 #include "animal.h"
 
-using namespace std;
+#include <iostream>
+using std::cout;
 
 //======ANIMAL======//
 
-Animal::Animal(string newName) {
-	type =  "Animal";
-	name = newName;
-}
+Animal::Animal(const string& newName) : name(newName), type("Animal"){}
 
-void Animal::doSomething(string thing) {
+void Animal::doSomething(const string& thing) {
 	cout << "\n" << name << " the " << type << " started " << thing;
 }
 
@@ -70,7 +68,7 @@ void Canine::roam() {
 
 //======HIPPO======//
 
-Hippo::Hippo(string newName) : Pachyderm(newName) {
+Hippo::Hippo(const string& newName) : Pachyderm(newName) {
 	type =  "Hippo";
 }
 
@@ -80,7 +78,7 @@ void Hippo::makeNoise() {
 
 //======ELEPHANT======//
 
-Elephant::Elephant(string newName) : Pachyderm(newName) {
+Elephant::Elephant(const string& newName) : Pachyderm(newName) {
 	type =  "Elephant";			
 }	
 
@@ -94,7 +92,7 @@ void Elephant::eat() {
 
 //======RHINO======//
 
-Rhino::Rhino(string newName) : Pachyderm(newName) {
+Rhino::Rhino(const string& newName) : Pachyderm(newName) {
 	type =  "Rhino";			
 }	
 
@@ -108,7 +106,7 @@ void Rhino::roam() {
 
 //======TIGER======//
 
-Tiger::Tiger(string newName) : Feline(newName) {
+Tiger::Tiger(const string& newName) : Feline(newName) {
 	type =  "Tiger";			
 }	
 
@@ -118,7 +116,7 @@ void Tiger::makeNoise() {
 
 //======LION======//
 
-Lion::Lion(string newName) : Feline(newName) {
+Lion::Lion(const string& newName) : Feline(newName) {
 	type =  "Lion";			
 }	
 
@@ -158,7 +156,7 @@ void Cat::iAmaCat() {
 	}
 }
 
-Cat::Cat(string newName) : Feline(newName) {
+Cat::Cat(const string& newName) : Feline(newName) {
 	type =  "Cat";			
 }
 
@@ -184,7 +182,7 @@ void Cat::sleep() {
 
 //======WOLF======//
 
-Wolf::Wolf(string newName) : Canine(newName) {
+Wolf::Wolf(const string& newName) : Canine(newName) {
 	type =  "Wolf";			
 }	
 
@@ -194,7 +192,7 @@ void Wolf::makeNoise() {
 
 //======DOG======//
 
-Dog::Dog(string newName) : Canine(newName) {
+Dog::Dog(const string& newName) : Canine(newName) {
 	type =  "Dog";			
 }	
 

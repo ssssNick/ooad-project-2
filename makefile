@@ -12,7 +12,7 @@ CPPFLAGS=-g -Wall
 OUTNAME=proj_2
 SRCDIR=src
 BUILDDIR=build
-RAW_SRCS=animal.cpp main.cpp zookeeper.cpp
+RAW_SRCS=animal.cpp main.cpp zookeeper.cpp zoo_announcer.cpp
 
 SRCS=$(RAW_SRCS:%=$(SRCDIR)/%)
 OBJS=$(subst $(SRCDIR),$(BUILDDIR),$(subst .cpp,.o,$(SRCS)))

@@ -1,6 +1,8 @@
 # Project 2 - Object Oriented Design and Analysis
 ### Authors: Andrew Kuklinski & Nick Brubaker & Dominic Doty
 
+## Environment: C++, GCC, Makefile
+
 ## Running the Code
 Example assuming GCC/G++ and make installed.
 
@@ -22,3 +24,13 @@ Example assuming GCC/G++ and make installed.
     * Shut down the zoo (Animals to Sleep)
 * **build/**: Build objects directory
 * **proj_2**: Output binary
+
+## To Do:
+- [x] Rewrite zoo in another OO language
+- [ ] Add at least one strategy pattern. One behaviour delegated and referenced rather than inheriting and overriding, initialize this behaviour in the strategy pattern manner. Clearly document where this is happening in the code.
+- [x] Add observer pattern "ZooAnnouncer" that observes the Zookeeper. When the Zookeeper starts a task, it will notify the Announcer. Announcer will print what the Zookeeper is doing. Don't remove the Zookeepers original announcements. Once Zookeeper is done, ZooAnnouncer should deconstruct. Clearly document where this is happening in the code.
+- [ ] Capture output in text file for turn in.
+- [ ] Create UML class diagram for final program with strategy and observer. Document all attributes, accessibility, and methods. Also include multiplicity in associations.
+- [ ] Create UML sequence diagram for the revised Zoo. Show top level objects that are instantiated, executed, and deconstructed. (Readable: Go to Animal level, but not lower.)
+- [x] Create UML activity diagram for the revised Zoo. Show major operations from start to finish. (Again, omit subclasses)
+- [x] Create UML use case diagram for the Zookeeper (as actor). Consider include/extend tasks. Use the WAVE rule.

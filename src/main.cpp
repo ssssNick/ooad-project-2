@@ -3,18 +3,13 @@
 //			Andrew Kuklinski
 // Description: Simulates a zoo with animals
 
-
 #include "animal.h"
 #include "zookeeper.h"
-#include <iostream>
-#include <vector>
-
-using namespace std;
+#include "zoo_announcer.h"
 
 #define NUM_ANIMALS 16
 
 int main() {
-	
 	Animal *animal_objects[NUM_ANIMALS];
 
 	animal_objects[0] = new Hippo("Harold");
@@ -34,11 +29,12 @@ int main() {
 	animal_objects[14] = new Wolf("Witch-King of Angmar");
 	animal_objects[15] = new Dog("Denethor II");
 
-	Zookeeper *handler = new Zookeeper("BillyRay");
+	Zookeeper handler ("BillyRay");
+	ZooAnnouncer announcer (handler);
 
-	handler->allWakeUp(animal_objects, NUM_ANIMALS);
-	handler->allRollCall(animal_objects, NUM_ANIMALS);
-	handler->allEating(animal_objects, NUM_ANIMALS);
-	handler->allExercise(animal_objects, NUM_ANIMALS);
-	handler->allSleep(animal_objects, NUM_ANIMALS);
+	handler.allWakeUp(animal_objects, NUM_ANIMALS);
+	handler.allRollCall(animal_objects, NUM_ANIMALS);
+	handler.allEating(animal_objects, NUM_ANIMALS);
+	handler.allExercise(animal_objects, NUM_ANIMALS);
+	handler.allSleep(animal_objects, NUM_ANIMALS);
 }
