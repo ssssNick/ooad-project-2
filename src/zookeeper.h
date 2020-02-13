@@ -31,7 +31,7 @@ class Zookeeper : public Observable {
         virtual void notify_observers() override;
         Zookeeper_Activities_t get_status();
         void allWakeUp(Animal ** zoo, const int num_animals);
-        void allRollCall(Animal ** zoo, const int num_animals);
+        // void allRollCall(Animal ** zoo, const int num_animals);
         void allEating(Animal ** zoo, const int num_animals);
         void allExercise(Animal ** zoo, const int num_animals);
         void allSleep(Animal ** zoo, const int num_animals);

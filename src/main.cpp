@@ -6,13 +6,19 @@
 #include "animal.h"
 #include "zookeeper.h"
 #include "zoo_announcer.h"
+#include "generic_observer.h"
+#include "strategy_makenoise.h"
 
 #define NUM_ANIMALS 16
 
 int main() {
-	Animal *animal_objects[NUM_ANIMALS];
 
-	animal_objects[0] = new Hippo("Harold");
+	Animal * animal = new Wolf("Steve");
+	WolfNoise * wf1 = new WolfNoise();
+	animal->setNoiseBehavior(wf1);
+	animal->makeNoiseInterface();
+
+	/*animal_objects[0] = new Hippo("Harold");
 	animal_objects[1] = new Elephant("Ellie");
 	animal_objects[2] = new Rhino("Ronald");
 	animal_objects[3] = new Tiger("Tim");
@@ -36,5 +42,5 @@ int main() {
 	handler.allRollCall(animal_objects, NUM_ANIMALS);
 	handler.allEating(animal_objects, NUM_ANIMALS);
 	handler.allExercise(animal_objects, NUM_ANIMALS);
-	handler.allSleep(animal_objects, NUM_ANIMALS);
+	handler.allSleep(animal_objects, NUM_ANIMALS);*/
 }

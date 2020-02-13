@@ -49,13 +49,13 @@ void Zookeeper::allWakeUp(Animal ** zoo, const int num_animals) {
 	cout << "\n-----------------------------------\n";
 }
 
-void Zookeeper::allRollCall(Animal ** zoo, const int num_animals) {
+/*void Zookeeper::allRollCall(Animal ** zoo, const int num_animals) {
 	this->set_status(calling);
 	notify_observers();
 	cout << "### " << zname << " says: Everyone here?";
 	for(int i = 0; i < num_animals; i++) zoo[i]->makeNoise();
 	cout << "\n-----------------------------------\n";
-}
+}*/
 
 void Zookeeper::allEating(Animal ** zoo, const int num_animals) {
 	this->set_status(feeding);

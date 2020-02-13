@@ -27,11 +27,19 @@ void Animal::wakeUp() {
 	doSomething("waking up");
 }
 
+void Animal::setNoiseBehavior(NoiseBehavior * obj){
+	noiseBehavior = obj;
+}
+
+void Animal::makeNoiseInterface(){
+	noiseBehavior->MakeNoise();
+}
+
 //======PACHYDERM======//
 
-void Pachyderm::makeNoise() {
+/*void Pachyderm::makeNoise() {
 	doSomething("grunting");
-}
+}*/
 
 void Pachyderm::eat() {
 	doSomething("eating grass");
@@ -54,9 +62,9 @@ void Feline::roam() {
 
 //======CANINE======//
 
-void Canine::makeNoise() {
+/*void Canine::makeNoise() {
 	doSomething("howling");
-}
+}*/
 
 void Canine::eat() {
 	doSomething("eating a squirrel");
@@ -72,9 +80,9 @@ Hippo::Hippo(const string& newName) : Pachyderm(newName) {
 	type =  "Hippo";
 }
 
-void Hippo::makeNoise() {
+/*void Hippo::makeNoise() {
 	doSomething("making Hippo sounds");
-}
+}*/
 
 //======ELEPHANT======//
 
@@ -82,9 +90,9 @@ Elephant::Elephant(const string& newName) : Pachyderm(newName) {
 	type =  "Elephant";			
 }	
 
-void Elephant::makeNoise() {
+/*void Elephant::makeNoise() {
 	doSomething("making Elephant sounds");
-}
+}*/
 
 void Elephant::eat() {
 	doSomething("eating a tree top");
@@ -96,9 +104,9 @@ Rhino::Rhino(const string& newName) : Pachyderm(newName) {
 	type =  "Rhino";			
 }	
 
-void Rhino::makeNoise() {
+/*void Rhino::makeNoise() {
 	doSomething("making Rhino sounds");
-}
+}*/
 
 void Rhino::roam() {
 	doSomething("digging a midden");
@@ -110,9 +118,9 @@ Tiger::Tiger(const string& newName) : Feline(newName) {
 	type =  "Tiger";			
 }	
 
-void Tiger::makeNoise() {
+/*void Tiger::makeNoise() {
 	doSomething("growling");
-}
+}*/
 
 //======LION======//
 
@@ -120,9 +128,9 @@ Lion::Lion(const string& newName) : Feline(newName) {
 	type =  "Lion";			
 }	
 
-void Lion::makeNoise() {
+/*void Lion::makeNoise() {
 	doSomething("roaring");
-}
+}*/
 
 //======CAT======//
 
@@ -164,9 +172,9 @@ void Cat::wakeUp() {
 	iAmaCat();
 }
 
-void Cat::makeNoise() {
+/*void Cat::makeNoise() {
 	iAmaCat();
-}
+}*/
 
 void Cat::eat() {
 	iAmaCat();
@@ -186,9 +194,9 @@ Wolf::Wolf(const string& newName) : Canine(newName) {
 	type =  "Wolf";			
 }	
 
-void Wolf::makeNoise() {
+/*void Wolf::makeNoise() {
 	doSomething("making Wolf sounds");
-}
+}*/
 
 //======DOG======//
 
@@ -196,6 +204,6 @@ Dog::Dog(const string& newName) : Canine(newName) {
 	type =  "Dog";			
 }	
 
-void Dog::makeNoise() {
+/*void Dog::makeNoise() {
 	doSomething("woofing");
-}
+}*/
