@@ -13,18 +13,7 @@
 
 int main() {
 
-	// Animal * animal = new Wolf("Steve");
-	// WolfNoise * wf1 = new WolfNoise();
-	// animal->setNoiseBehavior(wf1);
-	// animal->makeNoiseInterface();
-
 	Animal *animal_objects[NUM_ANIMALS];
-	animal_objects[0] = new Wolf("Steve");
-	WolfNoise * wn1 = new WolfNoise();
-	animal_objects[0]->setNoiseBehavior(wn1);
-	animal_objects[0]->performNoise();
-
-	/*Animal *animal_objects[NUM_ANIMALS];
 	animal_objects[0] = new Hippo("Harold");
 	animal_objects[1] = new Elephant("Ellie");
 	animal_objects[2] = new Rhino("Ronald");
@@ -33,6 +22,7 @@ int main() {
 	animal_objects[5] = new Cat("Chadwick");
 	animal_objects[6] = new Wolf("Winona");
 	animal_objects[7] = new Dog("Darcy");
+
 	animal_objects[8] = new Hippo("Halbarad");
 	animal_objects[9] = new Elephant("Elrond");
 	animal_objects[10] = new Rhino("Radagast");
@@ -46,8 +36,15 @@ int main() {
 	ZooAnnouncer announcer (handler);
 
 	handler.allWakeUp(animal_objects, NUM_ANIMALS);
+
+	/*****Implmentation for the allRollCall() has been changed to the Strategy Pattern*****/
+	/*The behavior for each animal is handled by the interface class "NoiseBehavior" with
+	* several concrete classes that control what noise is made when instantiated.
+	* "SetNoiseBehavior() and PerformNoise() are the interface methods for this pattern"
+	*/
 	handler.allRollCall(animal_objects, NUM_ANIMALS);
+	
 	handler.allEating(animal_objects, NUM_ANIMALS);
 	handler.allExercise(animal_objects, NUM_ANIMALS);
-	handler.allSleep(animal_objects, NUM_ANIMALS);*/
+	handler.allSleep(animal_objects, NUM_ANIMALS);
 }

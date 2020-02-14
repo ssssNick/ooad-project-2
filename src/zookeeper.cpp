@@ -49,13 +49,50 @@ void Zookeeper::allWakeUp(Animal ** zoo, const int num_animals) {
 	cout << "\n-----------------------------------\n";
 }
 
-/*void Zookeeper::allRollCall(Animal ** zoo, const int num_animals) {
+/*  This function implments the Strategy Pattern.
+*/
+void Zookeeper::allRollCall(Animal ** zoo, const int num_animals) {
 	this->set_status(calling);
 	notify_observers();
-	cout << "### " << zname << " says: Everyone here?";
-	for(int i = 0; i < num_animals; i++) zoo[i]->makeNoise();
+	cout << "### " << zname << " says: Everyone here?\n";
+
+	NoiseBehavior * noise_objects[num_animals];
+	HippoNoise * hn = new HippoNoise();
+	noise_objects[0] = hn;
+	ElephantNoise * en = new ElephantNoise();
+	noise_objects[1] = en;
+	RhinoNoise * rn = new RhinoNoise();
+	noise_objects[2] = rn;
+	TigerNoise * tn = new TigerNoise();
+	noise_objects[3] = tn;
+	LionNoise * ln = new LionNoise();
+	noise_objects[4] = ln;
+	CatNoise * cn = new CatNoise();
+	noise_objects[5] = cn;
+	CanineNoise * can1 = new CanineNoise();
+	noise_objects[6] = can1;
+	noise_objects[7] = can1;
+
+	for(int i = 0; i < num_animals; i++)
+	{
+		if(i<=7)
+		{
+			zoo[i]->setNoiseBehavior(noise_objects[i]);	
+		}
+		else
+		{
+			zoo[i]->setNoiseBehavior(noise_objects[i-8]);
+		}
+		zoo[i]->performNoise();
+	}
 	cout << "\n-----------------------------------\n";
-}*/
+
+
+	// WolfNoise * wn1 = new WolfNoise();
+	// otherNoise * other = new otherNoise();
+	// animal_objects[0]->setNoiseBehavior(other);
+	// animal_objects[0]->performNoise();
+}
 
 void Zookeeper::allEating(Animal ** zoo, const int num_animals) {
 	this->set_status(feeding);

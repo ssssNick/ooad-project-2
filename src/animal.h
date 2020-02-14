@@ -23,20 +23,18 @@ protected:
     string type;
 
 public:
-    NoiseBehavior * noiseBehavior;  //this is the instance variable strategy pattern
+    NoiseBehavior * noiseBehavior_inst;  //this is the instance variable strategy pattern
     explicit Animal(const string &newName);
     virtual ~Animal() {}
     void doSomething(const string &thing);
     virtual void sleep();
     virtual void wakeUp();
-    //virtual void makeNoise() = 0;
 
-    /*functions for the strategy pattern*/
+    /***functions for the strategy pattern***/
     void setNoiseBehavior(NoiseBehavior * obj);
-    // void makeNoiseInterface();
     void performNoise();
-
-    /************************************/
+    //makeNoise() functions below were kept to show original implementation
+    /***************************************/
 
     virtual void eat() = 0;
     virtual void roam() = 0;
@@ -126,7 +124,6 @@ class Wolf : public Canine
 public:
     explicit Wolf(const string &newName);
     // void makeNoise() override;
-    //noiseBehavior = new WolfNoise();
 };
 
 class Dog : public Canine
