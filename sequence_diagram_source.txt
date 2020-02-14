@@ -1,0 +1,21 @@
+## sequencediagram.org
+
+main->*animals:Instantiate
+main->*zookeeper: Instantiate
+main->*announcer: Instantiate with reference to zookeeper
+
+loop Repeat for all methods: Wake, RollCall, Eating, Exercise, Sleep
+main->zookeeper: Tell the animals to do something
+zookeeper->announcer: Notify change of state
+announcer->zookeeper: Get current state
+zookeeper-->announcer: Current state
+announcer->]: Announce state
+zookeeper->animals: Tell animals to do something
+animals->]: Waking Messages
+end
+
+announcer->]: Announce Zoo Closed (destructor)
+destroy announcer
+destroy main
+destroy animals
+destroy zookeeper
