@@ -27,12 +27,11 @@ void Animal::wakeUp() {
 	doSomething("waking up");
 }
 
+void Animal::performNoise(){
+	noiseBehavior->MakeNoise();
+}
 void Animal::setNoiseBehavior(NoiseBehavior * obj){
 	noiseBehavior = obj;
-}
-
-void Animal::makeNoiseInterface(){
-	noiseBehavior->MakeNoise();
 }
 
 //======PACHYDERM======//
